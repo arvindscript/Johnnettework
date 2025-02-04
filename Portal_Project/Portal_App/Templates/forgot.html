@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: rgb(246, 251, 253);
+      display: flex;
+      justify-content: space-evenly;
+      border-style: solid;
+      border-width: 3px;
+      border-color: black;
+      /* border-radius: 5%; */
+      height: 110%;
+      width: 80%;
+      padding: 2%;
+      margin:5% ;
+      /* position:fixed-size;*/
+      background-image: url('/static/PQT_static/change2.jpg'); 
+     
+    }
+
+    button {
+      background-attachment: fixed;
+      background-color: rgb(187, 188, 219);
+
+    }
+    
+    /* button.hover{
+       background-color: blue;
+      } */
+  </style>
+</head>
+
+<body>
+
+  <div class="forgot">
+    <h3><u>Send Otp On Email</u></h3>
+    <form method="POST" action="/forgot">
+      {% csrf_token %}
+      <label for="address">To:</label>
+      <input id="address" type="email" name="email_address" />
+      <br> <br>
+      <button type="submit">Send Otp</button>
+    </form>
+    <p>Please Fill in The Otp</p>
+    
+    <form method="POST" action="/OtpVerify">
+      {% csrf_token %}
+      <input type="text" id="otp" name="otp" minlength="4" maxlength="4" required />
+      <button type="submit">OTP verify</button>
+    
+  </div>
+</body>
+
+</html>

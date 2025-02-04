@@ -1,0 +1,240 @@
+<!-- <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<body>
+    <h1>Signup</h1>
+</body>
+</html> -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Portal</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000000;
+            /* background-color: #121212; */
+            color: #ffffff;
+            /* background-image: url("{% static 'img/login-background.png' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-origin: center; */
+        }
+
+        .container {
+            display: flex;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            width: 800px;
+            max-width: 100%;
+            opacity: .9;
+        }
+
+        .illustration {
+            flex: 1;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* background-color: #2c2c2c; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .illustration img {
+            width: 80%;
+            height: auto;
+        }
+
+        .form-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-section h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #00bcd4;
+        }
+
+        .form-section p {
+            font-size: 14px;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #2c2c2c;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .form-group a {
+            font-size: 12px;
+            color: #00bcd4;
+            text-decoration: none;
+        }
+
+        .form-group a:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            background-color: #00bcd4;
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #008c9e;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .divider:before, .divider:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background-color: #444;
+        }
+
+        .divider:before {
+            left: 0;
+        }
+
+        .divider:after {
+            right: 0;
+        }
+
+        .divider span {
+            background-color: #1e1e1e;
+            padding: 0 10px;
+            color: #b0b0b0;
+            font-size: 14px;
+        }
+
+        .google-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2c2c2c;
+            border: 1px solid #444;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .google-btn img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .signup {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #b0b0b0;
+        }
+
+        .signup a {
+            color: #00bcd4;
+            text-decoration: none;
+        }
+
+        .signup a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="illustration">
+            <img src="{% static 'PQT_static/login.jpg' %}" alt="">
+        </div>
+        <div class="form-section">
+            <h1>Exam Portal Johnnette </h1>
+            <p>Unleash Your Academic Success with Exam Mastery Hub's Exam Excellence Platform</p>
+
+            <form method="POST" action="/login">
+            {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Username or Email</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+         
+                <div class="form-group">
+                 <!-- {% csrf_token %} -->
+                    <a href="{% url 'forgot' %}">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn">Sign In</button>
+            </form>
+
+            <div class="divider">
+                <span>or</span>
+            </div>
+
+            <div class="google-btn">
+                <img src="" alt="Google Icon">
+                Sign in with Google
+            </div>
+
+            <div class="signup">
+                Are you new? <a href="{% url 'create' %}">Create an Account</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
