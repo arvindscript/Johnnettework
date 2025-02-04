@@ -8,7 +8,7 @@ import random
 otp_storage = 0
 def CREATE (request):
     if request.method=='POST':
-        signupform=Signup(request.POST)
+        signupform=Signup(request.POST) 
         if signupform.is_valid() and signupform.cleaned_data['password']==signupform.cleaned_data['confirm_password']:
             password=signupform.cleaned_data['password']
             fname=signupform.cleaned_data['first_name']
